@@ -2,10 +2,10 @@ rehype-ignore
 ===
 <!--rehype:style=display: flex; height: 230px; align-items: center; justify-content: center; font-size: 38px;-->
 
-[![Downloads](https://img.shields.io/npm/dm/rehype-rewrite.svg?style=flat)](https://www.npmjs.com/package/rehype-rewrite)
-[![NPM version](https://img.shields.io/npm/v/rehype-rewrite.svg?style=flat)](https://npmjs.org/package/rehype-rewrite)
-[![Build](https://github.com/jaywcjlove/rehype-rewrite/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/rehype-rewrite/actions/workflows/ci.yml)
-[![Coverage Status](https://jaywcjlove.github.io/rehype-rewrite/badges.svg)](https://jaywcjlove.github.io/rehype-rewrite/lcov-report/)
+[![Downloads](https://img.shields.io/npm/dm/rehype-ignore.svg?style=flat)](https://www.npmjs.com/package/rehype-ignore)
+[![NPM version](https://img.shields.io/npm/v/rehype-ignore.svg?style=flat)](https://npmjs.org/package/rehype-ignore)
+[![Build](https://github.com/jaywcjlove/rehype-ignore/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/rehype-ignore/actions/workflows/ci.yml)
+[![Coverage Status](https://jaywcjlove.github.io/rehype-ignore/badges.svg)](https://jaywcjlove.github.io/rehype-ignore/lcov-report/)
 
 Ignore content display via HTML comments, Shown in GitHub readme, excluded in HTML.
 
@@ -72,6 +72,48 @@ const html = `<h1>header</h1>
 const htmlStr = rehype()
   .data('settings', { fragment: true })
   .use(rehypeAttrs, { properties: 'attr' })
+  .processSync(html)
+  .toString()
+```
+
+### Markdown Example
+
+```markdown
+# Hello World
+
+<!--rehype:ignore:start-->Hello World<!--rehype:ignore:end-->
+
+Good!
+```
+
+Output:
+
+```html
+<h1>Hello World</h1>
+
+<p>Good!</p>
+```
+
+```js
+import { unified } from 'unified';
+import rehypeIgnore from 'rehype-ignore';
+import remarkParse from 'remark-parse';
+import remark2rehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
+import stringify from 'rehype-stringify';
+
+const html = `# Hello World
+
+<!--rehype:ignore:start-->Hello World<!--rehype:ignore:end-->
+
+Good!`
+
+const htmlStr = unified()
+  .use(remarkParse)
+  .use(remark2rehype, { allowDangerousHtml: true })
+  .use(rehypeRaw)
+  .use(rehypeIgnore, { })
+  .use(stringify)
   .processSync(html)
   .toString()
 ```
