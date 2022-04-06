@@ -6,7 +6,7 @@ import rehypeRaw from 'rehype-raw';
 import stringify from 'rehype-stringify';
 import rehypeIgnore from '..';
 
-it('rehypeIgnore test case', async () => {
+it('rehypeIgnore test case 1', async () => {
   const html = `<!--rehype:ignore:start--><h1>header</h1><!--rehype:ignore:end-->`;
   const htmlStr = rehype()
     .data('settings', { fragment: true })
@@ -17,7 +17,7 @@ it('rehypeIgnore test case', async () => {
     expect(htmlStr).toEqual('');
 });
 
-it('rehypeIgnore test case', async () => {
+it('rehypeIgnore test case 2', async () => {
   const html = `<!--rehype:ignore:start--><h1>header</h1>`;
   const htmlStr = rehype()
     .data('settings', { fragment: true })
@@ -28,7 +28,7 @@ it('rehypeIgnore test case', async () => {
     expect(htmlStr).toEqual(html);
 });
 
-it('rehypeIgnore test case', async () => {
+it('rehypeIgnore test case 3', async () => {
   const html = `<h1>header</h1><!--rehype:ignore:end-->`;
   const htmlStr = rehype()
     .data('settings', { fragment: true })
@@ -39,7 +39,7 @@ it('rehypeIgnore test case', async () => {
     expect(htmlStr).toEqual(html);
 });
 
-it('rehypeIgnore test case', async () => {
+it('rehypeIgnore test case 4', async () => {
   const html = `<!--rehype:ignore:start--><h1>header</h1><!--rehype:ignore:end--><!--rehype:ignore:end-->`;
   const htmlStr = rehype()
     .data('settings', { fragment: true })
@@ -60,13 +60,35 @@ it('rehypeIgnore test case', async () => {
 `;
   const expected = `
 <p>
-  Hello </p>
-`
+  Hello 
+</p>
+`;
   const htmlStr = rehype()
     .data('settings', { fragment: true })
     .use(rehypeIgnore, { })
     .use(stringify)
     .processSync(html)
     .toString()
+    expect(htmlStr).toEqual(expected);
+});
+
+it('rehypeIgnore Markdown test case', async () => {
+  const html = `# Hello World
+
+<!--rehype:ignore:start-->Hello World<!--rehype:ignore:end-->
+
+Good!`;
+  const expected = `<h1>Hello World</h1>
+
+<p>Good!</p>`;
+  const htmlStr = unified()
+    .use(remarkParse)
+    .use(remark2rehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeIgnore, { })
+    .use(stringify)
+    .processSync(html)
+    .toString()
+
     expect(htmlStr).toEqual(expected);
 });

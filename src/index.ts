@@ -21,7 +21,7 @@ const rehypeIgnore: Plugin<[RehypeIgnoreOptions?], Root> = (options = {}) => {
         const start = node.children.findIndex((item) => item.type === 'comment' && item.value === openDelimiter);
         const end = node.children.findIndex((item) => item.type === 'comment' && item.value === closeDelimiter);
         if (start > -1 && end > -1) {
-          node.children.splice(start, end + 1);
+          node.children = node.children.filter((_, idx) => idx < start || idx > end);
         }
       }
     });
