@@ -25,7 +25,7 @@ it('rehypeIgnore test case 2', async () => {
     .use(stringify)
     .processSync(html)
     .toString()
-    expect(htmlStr).toEqual(html);
+    expect(htmlStr).toEqual('');
 });
 
 it('rehypeIgnore test case 3', async () => {
@@ -36,7 +36,7 @@ it('rehypeIgnore test case 3', async () => {
     .use(stringify)
     .processSync(html)
     .toString()
-    expect(htmlStr).toEqual(html);
+    expect(htmlStr).toEqual('<h1>header</h1>');
 });
 
 it('rehypeIgnore test case 4', async () => {
@@ -47,29 +47,7 @@ it('rehypeIgnore test case 4', async () => {
     .use(stringify)
     .processSync(html)
     .toString()
-    expect(htmlStr).toEqual(`<!--rehype:ignore:end-->`);
-});
-
-it('rehypeIgnore test case', async () => {
-  const html = `<!--rehype:ignore:start-->
-<h1>header</h1>
-<!--rehype:ignore:end-->
-<p>
-  Hello <!--rehype:ignore:start--> <code>World</code> <!--rehype:ignore:end-->
-</p>
-`;
-  const expected = `
-<p>
-  Hello 
-</p>
-`;
-  const htmlStr = rehype()
-    .data('settings', { fragment: true })
-    .use(rehypeIgnore, { })
-    .use(stringify)
-    .processSync(html)
-    .toString()
-    expect(htmlStr).toEqual(expected);
+    expect(htmlStr).toEqual('');
 });
 
 it('rehypeIgnore Markdown test case', async () => {
@@ -90,5 +68,36 @@ Good!`;
     .processSync(html)
     .toString()
 
+    expect(htmlStr).toEqual(expected);
+});
+
+
+it('rehypeIgnore test case', async () => {
+  const html = `<!--rehype:ignore:start-->
+<h1>header</h1>
+<!--rehype:ignore:end-->
+<p>
+  Hello <!--rehype:ignore:start--> <code>World</code> <!--rehype:ignore:end-->
+</p>
+
+<!--rehype:ignore:start-->
+<h2>header</h2>
+<!--rehype:ignore:end-->
+<p>Hi</p>
+`;
+  const expected = `
+<p>
+  Hello 
+</p>
+
+
+<p>Hi</p>
+`;
+  const htmlStr = rehype()
+    .data('settings', { fragment: true })
+    .use(rehypeIgnore, { })
+    .use(stringify)
+    .processSync(html)
+    .toString()
     expect(htmlStr).toEqual(expected);
 });
