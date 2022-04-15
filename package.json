@@ -1,13 +1,13 @@
 {
   "name": "rehype-ignore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ignore content display via HTML comments, Shown in GitHub readme, excluded in HTML.",
   "homepage": "https://jaywcjlove.github.io/rehype-ignore",
   "author": "Kenny Wong <wowohoo@qq.com>",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "prepack": "npm run build",
     "start": "node lib/index.js",
