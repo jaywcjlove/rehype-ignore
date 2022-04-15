@@ -71,6 +71,19 @@ Good!`;
     expect(htmlStr).toEqual(expected);
 });
 
+it('rehypeIgnore test case openDelimiter/closeDelimiter', async () => {
+  const html = `<!--idoc:start--><h1>header</h1><!--idoc:end-->`;
+  const htmlStr = rehype()
+    .data('settings', { fragment: true })
+    .use(rehypeIgnore, {
+      openDelimiter: 'idoc:start',
+      closeDelimiter: 'idoc:end',
+    })
+    .use(stringify)
+    .processSync(html)
+    .toString()
+    expect(htmlStr).toEqual('');
+});
 
 it('rehypeIgnore test case', async () => {
   const html = `<!--rehype:ignore:start-->
