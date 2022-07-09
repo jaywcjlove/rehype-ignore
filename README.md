@@ -6,6 +6,7 @@ rehype-ignore
 [![NPM version](https://img.shields.io/npm/v/rehype-ignore.svg?style=flat)](https://npmjs.org/package/rehype-ignore)
 [![Build](https://github.com/jaywcjlove/rehype-ignore/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/rehype-ignore/actions/workflows/ci.yml)
 [![Coverage Status](https://jaywcjlove.github.io/rehype-ignore/badges.svg)](https://jaywcjlove.github.io/rehype-ignore/lcov-report/)
+[![Repo Dependents](https://badgen.net/github/dependents-repo/jaywcjlove/rehype-ignore)](https://github.com/jaywcjlove/rehype-ignore/network/dependents)
 
 Ignore content display via HTML comments, Shown in GitHub readme, excluded in HTML.
 
