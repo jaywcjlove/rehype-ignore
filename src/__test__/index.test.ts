@@ -6,6 +6,18 @@ import rehypeRaw from 'rehype-raw';
 import stringify from 'rehype-stringify';
 import rehypeIgnore from '..';
 
+it('rehypeIgnore markdown raw test case 1', async () => {
+  const markdown = `<!--rehype:ignore:start-->\n# Title\n<!--rehype:ignore:end-->\n\ntest`;
+  const htmlStr = unified()
+    .use(remarkParse)
+    .use(remark2rehype, { allowDangerousHtml: true })
+    .use(rehypeIgnore, { })
+    .use(stringify)
+    .processSync(markdown)
+    .toString()
+    expect(htmlStr).toEqual('\n<p>test</p>');
+});
+
 it('rehypeIgnore test case 1', async () => {
   const html = `<!--rehype:ignore:start--><h1>header</h1><!--rehype:ignore:end-->`;
   const htmlStr = rehype()
