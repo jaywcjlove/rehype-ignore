@@ -26,7 +26,7 @@ const rehypeIgnore: Plugin<[RehypeIgnoreOptions?], Root> = (options = {}) => {
         let start = false;
         node.children = node.children.filter((item) => {
           if (item.type === 'raw' || item.type === 'comment') {
-            let str =  item.value?.trim();
+            let str =  (item.value || '').trim();
             str = str.replace(/^<!--(.*?)-->/, '$1')
             if (str === openDelimiter) {
                 start = true;
