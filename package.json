@@ -1,6 +1,6 @@
 {
   "name": "rehype-ignore",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Ignore content display via HTML comments, Shown in GitHub readme, excluded in HTML.",
   "homepage": "https://jaywcjlove.github.io/rehype-ignore",
   "author": "Kenny Wong <wowohoo@qq.com>",
