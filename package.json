@@ -55,6 +55,6 @@
     "rehype-raw": "~6.1.1",
     "remark-parse": "~10.0.1",
     "remark-rehype": "~10.1.0",
-    "tsbb": "~3.7.2"
+    "tsbb": "~4.0.0"
   }
 }
