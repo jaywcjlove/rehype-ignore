@@ -1,6 +1,33 @@
-import { Plugin } from 'unified';
-import { Root, RootContent } from 'hast';
+import type { Plugin } from 'unified';
+import type { Root, RootContent, Literal } from 'hast';
 import { visit } from 'unist-util-visit';
+
+/**
+ * Raw string of HTML embedded into HTML AST.
+ */
+export interface Raw extends Literal {
+  /**
+   * Node type.
+   */
+  type: 'raw'
+}
+
+// Register nodes in content.
+declare module 'hast' {
+  interface RootContentMap {
+    /**
+     * Raw string of HTML embedded into HTML AST.
+     */
+    raw: Raw
+  }
+  interface ElementContentMap {
+    /**
+     * Raw string of HTML embedded into HTML AST.
+     */
+    raw: Raw
+  }
+}
+
 
 export type RehypeIgnoreOptions = {
   /**
