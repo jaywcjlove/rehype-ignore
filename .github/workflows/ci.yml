@@ -19,15 +19,22 @@ jobs:
       - run: npm run type-check
       - run: npm run coverage
 
-      - name: Converts Markdown to HTML
-        uses: jaywcjlove/markdown-to-html-cli@main
-        with:
-          source: README.md
-          output: coverage/index.html
-          github-corners: https://github.com/jaywcjlove/rehype-ignore
-      
+      - name: Create idoc config
+        run: |
+          cat > idoc.yml << EOF
+          site: "rehype-ignore {{version}}"
+          menus:
+            Home: index.html
+          EOF
+
+      - run: npm install idoc@1.26.6 -g
+      - run: idoc
+
+      - run: cp -rp ./coverage/lcov-report dist
       - name: Create Coverage Badges
         uses: jaywcjlove/coverage-badges-cli@main
+        with:
+          output: dist/badges.svg
 
       - name: Generate Contributors Images
         uses: jaywcjlove/github-action-contributors@main
@@ -53,7 +60,7 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: ${{steps.tag_version.outputs.tag}} ${{ github.event.head_commit.message }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./coverage
+          publish_dir: ./dist
 
       - name: Generate Changelog
         id: changelog
