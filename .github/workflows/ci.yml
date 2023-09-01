@@ -24,10 +24,10 @@ jobs:
           cat > idoc.yml << EOF
           site: "rehype-ignore {{version}}"
           menus:
-            Home: index.html
+            Attr: https://jaywcjlove.github.io/rehype-attr/
+            Ignore: index.html
             Rewrite: https://jaywcjlove.github.io/rehype-rewrite/
             Video: https://jaywcjlove.github.io/rehype-video/
-            Attr: https://jaywcjlove.github.io/rehype-attr/
           EOF
 
       - run: npm install idoc@1.26.6 -g
