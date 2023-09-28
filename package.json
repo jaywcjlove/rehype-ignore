@@ -47,7 +47,7 @@
   "dependencies": {
     "unified": "^11.0.0",
     "unist-util-visit": "^4.1.2",
-    "hast-util-select": "^5.0.5"
+    "hast-util-select": "^6.0.0"
   },
   "devDependencies": {
     "rehype": "^13.0.0",
