@@ -7,7 +7,8 @@
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
-  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "exports": "./lib/index.js",
   "scripts": {
     "prepack": "npm run build",
     "start": "node lib/index.js",
@@ -42,7 +43,7 @@
     ]
   },
   "engines": {
-    "node": "^14.13.1 || >=16.0.0"
+    "node": ">=16"
   },
   "dependencies": {
     "unified": "^11.0.0",
