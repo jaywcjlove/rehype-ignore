@@ -1,4 +1,4 @@
-import type { Plugin } from 'unified';
+import type { Plugin, Pluggable } from 'unified';
 import type { Root, RootContent, Literal } from 'hast';
 import { visit } from 'unist-util-visit';
 
