@@ -54,7 +54,7 @@
     "rehype-stringify": "^9.0.3",
     "rehype-raw": "^7.0.0",
     "remark-parse": "^11.0.0",
-    "remark-rehype": "^10.1.0",
+    "remark-rehype": "^11.0.0",
     "tsbb": "^4.1.3"
   }
 }
