@@ -4,7 +4,7 @@ import remark2rehype from 'remark-rehype';
 import { rehype } from 'rehype';
 import rehypeRaw from 'rehype-raw';
 import stringify from 'rehype-stringify';
-import rehypeIgnore from '..';
+import rehypeIgnore from '../index.js';
 
 it('rehypeIgnore markdown raw test case 1', async () => {
   const markdown = `<!--rehype:ignore:start-->\n# Title\n<!--rehype:ignore:end-->\n\ntest`;
