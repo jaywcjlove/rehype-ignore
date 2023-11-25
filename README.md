@@ -2,6 +2,7 @@ rehype-ignore
 ===
 <!--rehype:style=display: flex; height: 230px; align-items: center; justify-content: center; font-size: 38px;-->
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor) 
 [![Downloads](https://img.shields.io/npm/dm/rehype-ignore.svg?style=flat)](https://www.npmjs.com/package/rehype-ignore)
 [![NPM version](https://img.shields.io/npm/v/rehype-ignore.svg?style=flat)](https://npmjs.org/package/rehype-ignore)
 [![Build](https://github.com/jaywcjlove/rehype-ignore/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/rehype-ignore/actions/workflows/ci.yml)
