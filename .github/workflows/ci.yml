@@ -100,7 +100,7 @@ jobs:
             ${{ steps.changelog.outputs.changelog }}
 
       - run: npm publish --access public --provenance
-        name: 📦  rehype-ignore publish to NPM
+        name: 📦 rehype-ignore publish to NPM
         continue-on-error: true
         # env:
         #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
