@@ -102,5 +102,5 @@ jobs:
       - run: npm publish --access public --provenance
         name: 📦  rehype-ignore publish to NPM
         continue-on-error: true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
