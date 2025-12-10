@@ -1,6 +1,6 @@
 {
   "name": "rehype-ignore",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Ignore content display via HTML comments, Shown in GitHub readme, excluded in HTML.",
   "homepage": "https://jaywcjlove.github.io/rehype-ignore",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
