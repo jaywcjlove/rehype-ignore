@@ -45,7 +45,7 @@ rehype-ignore
 [![Coverage Status](https://jaywcjlove.github.io/rehype-ignore/badges.svg)](https://jaywcjlove.github.io/rehype-ignore/lcov-report/)
 [![Repo Dependents](https://badgen.net/github/dependents-repo/jaywcjlove/rehype-ignore)](https://github.com/jaywcjlove/rehype-ignore/network/dependents)
 
-Ignore content display via HTML comments, Shown in GitHub readme, excluded in HTML.
+Ignore content display via HTML comments, Shown in GitHub readme, excluded in HTML. 
 
 ## Installation
 
@@ -60,7 +60,7 @@ npm install rehype-ignore
 ```ts
 export declare type RehypeIgnoreOptions = {
   /**
-   *  Character to use for opening delimiter, by default `rehype:ignore:start`
+   * Character to use for opening delimiter, by default `rehype:ignore:start`
    */
   openDelimiter?: string;
   /**
