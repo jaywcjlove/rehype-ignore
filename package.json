@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaywcjlove/rehype-ignore"
+    "url": "git+https://github.com/jaywcjlove/rehype-ignore.git"
   },
   "files": [
     "src",
@@ -39,7 +39,9 @@
     "unified"
   ],
   "jest": {
-    "extensionsToTreatAsEsm": [".ts"],
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
     "moduleNameMapper": {
       "^(\\.{1,2}/.*)\\.js$": "$1"
     },
