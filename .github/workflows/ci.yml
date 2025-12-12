@@ -100,6 +100,8 @@ jobs:
 
             ${{ steps.changelog.outputs.changelog }}
 
+      - name: Upgrade npm for OIDC support
+        run: npm install -g npm@latest
       - run: NODE_AUTH_TOKEN="" npm publish --access public --provenance
         name: 📦 rehype-ignore publish to NPM
         continue-on-error: true
